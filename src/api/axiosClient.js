@@ -2,7 +2,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 
-const baseUrl = 'https://kanbanappnode-production.up.railway.app/api/v1';
+const baseUrl = 'https://kanban-server.netlify.app/api/v1';
 
 const getToken = () => localStorage.getItem('token');
 
