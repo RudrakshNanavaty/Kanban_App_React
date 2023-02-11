@@ -94,7 +94,9 @@ const Sidebar = () => {
 				p: '12px',
 				height: '100%',
 				borderRadius: 'inherit',
-				backgroundColor: 'background.light'
+				backgroundColor: 'background.light',
+				overflow: 'scroll',
+				'&::-webkit-scrollbar': { display: 'none' }
 			}}
 		>
 			<List sx={{ p: '0px' }}>

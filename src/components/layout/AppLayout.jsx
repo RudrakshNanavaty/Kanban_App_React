@@ -33,7 +33,14 @@ const AppLayout = () => {
 	return loading ? (
 		<Loading fullHeight />
 	) : (
-		<Box sx={{ p: '2.5vh', height: '100vh' }}>
+		<Box
+			sx={{
+				p: '2.5vh',
+				height: '100vh',
+				overflow: 'scroll',
+				'&::-webkit-scrollbar': { display: 'none' },
+			}}
+		>
 			<Grid container columnSpacing={'2.5vh'} sx={{ height: '100%' }}>
 				<Grid item xs={2} sx={{ borderRadius: '24px' }}>
 					<Sidebar />

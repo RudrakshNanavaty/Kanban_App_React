@@ -8,7 +8,7 @@ import {
 	Card,
 	IconButton,
 	TextField,
-	Typography
+	Typography,
 } from '@mui/material';
 import { AddRounded, DeleteRounded } from '@mui/icons-material';
 // local files
@@ -34,7 +34,7 @@ const Kanban = props => {
 
 		const sourceColIndex = data.findIndex(e => e.id === source.droppableId);
 		const destinationColIndex = data.findIndex(
-			e => e.id === destination.droppableId
+			e => e.id === destination.droppableId,
 		);
 
 		const sourceCol = data[sourceColIndex];
@@ -64,7 +64,7 @@ const Kanban = props => {
 				resourceList: sourceTasks,
 				destinationList: destinationTasks,
 				resourceSectionId: sourceSectionId,
-				destinationSectionId: destinationSectionId
+				destinationSectionId: destinationSectionId,
 			});
 			setData(data);
 		} catch (err) {
@@ -106,7 +106,7 @@ const Kanban = props => {
 		timer = setTimeout(async () => {
 			try {
 				await sectionApi.update(boardId, sectionId, {
-					title: newTitle
+					title: newTitle,
 				});
 			} catch (err) {
 				console.log(err);
@@ -134,7 +134,7 @@ const Kanban = props => {
 		const newData = [...data];
 		const sectionIndex = newData.findIndex(e => e.id === task.section.id);
 		const taskIndex = newData[sectionIndex].tasks.findIndex(
-			e => e.id === task.id
+			e => e.id === task.id,
 		);
 		newData[sectionIndex].tasks[taskIndex] = task;
 		setData(newData);
@@ -144,7 +144,7 @@ const Kanban = props => {
 		const newData = [...data];
 		const sectionIndex = newData.findIndex(e => e.id === task.section.id);
 		const taskIndex = newData[sectionIndex].tasks.findIndex(
-			e => e.id === task.id
+			e => e.id === task.id,
 		);
 		newData[sectionIndex].tasks.splice(taskIndex, 1);
 		setData(newData);
@@ -161,7 +161,7 @@ const Kanban = props => {
 					borderRadius: '24px',
 					backgroundColor: '#ffffff24',
 					alignItems: 'center',
-					justifyContent: 'space-between'
+					justifyContent: 'space-between',
 				}}
 			>
 				{/* ADD SECTION button */}
@@ -178,8 +178,8 @@ const Kanban = props => {
 						'&:hover': {
 							backgroundColor: props.isFavourite
 								? 'warning.main'
-								: 'primary.main'
-						}
+								: 'primary.main',
+						},
 					}}
 				>
 					ADD SECTION
@@ -189,7 +189,7 @@ const Kanban = props => {
 					sx={{
 						p: '6px 10px',
 						backgroundColor: '#ffffff32',
-						borderRadius: 'inherit'
+						borderRadius: 'inherit',
 					}}
 				>
 					{data.length} Sections
@@ -202,8 +202,9 @@ const Kanban = props => {
 					sx={{
 						display: 'flex',
 						alignItems: 'flex-start',
-						width: 'calc(100vw - 400px)',
-						overflowX: 'auto'
+						width: '100%',
+						overflow: 'scroll',
+						'&::-webkit-scrollbar': { display: 'none' },
 					}}
 				>
 					{data.map(section => (
@@ -212,7 +213,7 @@ const Kanban = props => {
 							style={{
 								width: '300px',
 								marginRight: '24px',
-								borderRadius: '24px'
+								borderRadius: '24px',
 							}}
 						>
 							<Droppable
@@ -229,7 +230,7 @@ const Kanban = props => {
 											p: '12px',
 											width: '300px',
 											borderRadius: '24px',
-											backgroundColor: '#ffffff12'
+											backgroundColor: '#ffffff12',
 										}}
 									>
 										{/* Section Title and Buttons */}
@@ -243,7 +244,7 @@ const Kanban = props => {
 													props.isFavourite
 														? 'warning.main'
 														: 'primary.main',
-												borderRadius: '12px'
+												borderRadius: '12px',
 											}}
 										>
 											{/* Section Title */}
@@ -253,7 +254,7 @@ const Kanban = props => {
 												sx={{
 													flexGrow: 1,
 													input: {
-														color: 'text.dark'
+														color: 'text.dark',
 													},
 													'& .MuiOutlinedInput-input':
 														{ padding: 0 },
@@ -262,13 +263,13 @@ const Kanban = props => {
 													'& .MuiOutlinedInput-root':
 														{
 															fontSize: '1.25rem',
-															fontWeight: 'bold'
-														}
+															fontWeight: 'bold',
+														},
 												}}
 												onChange={e => {
 													updateSectionTitle(
 														e,
-														section.id
+														section.id,
 													);
 												}}
 											/>
@@ -276,7 +277,7 @@ const Kanban = props => {
 											{/* Add Task Button */}
 											<IconButton
 												sx={{
-													color: 'text.dark'
+													color: 'text.dark',
 												}}
 												onClick={() =>
 													addTask(section.id)
@@ -290,8 +291,8 @@ const Kanban = props => {
 												sx={{
 													color: 'text.dark',
 													'&:hover': {
-														color: 'error.main'
-													}
+														color: 'error.main',
+													},
 												}}
 												onClick={() =>
 													deleteSection(section.id)
@@ -321,11 +322,12 @@ const Kanban = props => {
 																: 'pointer!important',
 															backgroundColor:
 																'#0000007a',
-															borderRadius: '12px'
+															borderRadius:
+																'12px',
 														}}
 														onClick={() => {
 															setSelectedTask(
-																task
+																task,
 															);
 														}}
 													>

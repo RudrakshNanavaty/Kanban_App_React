@@ -20,15 +20,14 @@ function App() {
 	const theme = createTheme({
 		palette: assets.palette,
 		shape: {
-			borderRadius: 10
-		}
+			borderRadius: 10,
+		},
 	});
 
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<BrowserRouter>
-
 				<Routes>
 					<Route path='/' element={<AuthLayout />}>
 						<Route path='/login' element={<Login />} />
@@ -40,7 +39,6 @@ function App() {
 						<Route path='/boards' element={<Home />} />
 						<Route path='/boards/:boardId' element={<Board />} />
 					</Route>
-
 				</Routes>
 			</BrowserRouter>
 		</ThemeProvider>
