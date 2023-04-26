@@ -1,7 +1,6 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-
 const baseUrl = 'http://localhost:8001/api/v1';
 
 const getToken = () => localStorage.getItem('token');
